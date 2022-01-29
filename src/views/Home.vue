@@ -1,18 +1,50 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navigation></Navigation>
+    <Background> </Background>
+
+    <header>
+      <!-- The header content -->
+      <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+          <div class="w-100">
+            <h1 class="display-3">WELCOME TO BOOKSTORE FEATHER!</h1>
+          </div>
+        </div>
+      </div>
+    </header>
   </div>
 </template>
 
+
+<style>
+header {
+  position: static;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.display-3 {
+  color: burlywood;
+}
+</style>
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Background from "../components/Background.vue";
+import Navigation from "../components/Navigation.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    Background,
+    Navigation,
+  },
+};
 </script>
