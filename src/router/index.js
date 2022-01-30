@@ -26,6 +26,12 @@ const routes = [{
         name: 'ChangeData',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/ChangeData.vue')
+    },
+    {
+        path: '/success',
+        name: 'Success',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/Success.vue')
     }
 
 
