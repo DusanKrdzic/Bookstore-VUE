@@ -32,7 +32,26 @@ const routes = [{
         name: 'Success',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/Success.vue')
+    },
+    {
+        path: '/buyer',
+        name: 'Buyer',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/Buyer.vue')
+    },
+    {
+        path: '/seller',
+        name: 'Seller',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/Seller.vue')
+    },
+    {
+        path: '/book_details',
+        name: 'BookDetails',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/BookDetails.vue')
     }
+
 
 
 ]

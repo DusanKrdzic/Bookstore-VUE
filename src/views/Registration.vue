@@ -42,6 +42,34 @@
           </td>
         </tr>
         <tr>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              value="buyer"
+              v-model="picked"
+            />
+            <label class="form-check-label" for="flexRadioDefault1" style="color:burlywood">
+              Buyer
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault2"
+              value="seller"
+              v-model="picked"
+            />
+            <label class="form-check-label" for="flexRadioDefault2" style="color:burlywood">
+              Seller
+            </label>
+          </div>
+        </tr>
+        <tr>
           <td colspan="2">
             <button class="btn" @click="register()">REGISTER</button>
           </td>
@@ -93,14 +121,17 @@ export default {
       address: "",
       username: "",
       password: "",
+      picked: "",
       users: [],
     };
   },
   methods: {
     register() {
+      console.log(users);
+      console.log(this.picked)
       let user = this.users.find(
         (user) =>
-          user.username == this.username || user.password == this.password
+          user.username == this.username
       );
       if (user != null) {
         alert("This user already exists, try again!");
@@ -112,7 +143,8 @@ export default {
         this.phone == "" ||
         this.address == "" ||
         this.username == "" ||
-        this.password == ""
+        this.password == "" ||
+        this.picked == ""
       ) {
         alert("Field can't be empty!");
         return;
@@ -122,13 +154,17 @@ export default {
         surname: this.surname,
         phone: this.phone,
         address: this.address,
-        username: this.usernam,
+        username: this.username,
         password: this.password,
+        type: this.picked
       });
 
       localStorage.setItem("users", JSON.stringify(this.users));
-      localStorage.setItem("success_message",JSON.stringify("REGISTRATION SUCCESS!"))
-      this.$router.push('success')
+      localStorage.setItem(
+        "success_message",
+        JSON.stringify("REGISTRATION SUCCESS!")
+      );
+      this.$router.push("success");
     },
   },
   mounted() {

@@ -5,7 +5,7 @@ let users = [{
         password: "john123",
         phone: "1234567",
         Address: "Dummy street 1",
-        type: 0 // for buyer
+        type: "buyer"
     },
     {
         name: "David",
@@ -14,7 +14,7 @@ let users = [{
         password: "david123",
         phone: "1234567",
         Address: "Dummy street 2",
-        type: 0 // for buyer
+        type: "buyer"
     },
     {
         name: "Luke",
@@ -23,7 +23,7 @@ let users = [{
         password: "luke123",
         phone: "1234567",
         Address: "Dummy street 3",
-        type: 1 // for seller
+        type: "seller"
     }
 ]
 

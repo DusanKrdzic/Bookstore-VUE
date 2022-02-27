@@ -15,9 +15,6 @@
         <li class="nav-item">
           <router-link to="/registration" class="nav-link">REGISTRATION</router-link>
         </li>
-        <li class="nav-item">
-          <router-link to="/change_data" class="nav-link">CHANGE DATA</router-link>
-        </li>
       </ul>
     </div>
   </div>

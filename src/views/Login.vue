@@ -80,16 +80,14 @@ export default {
         alert("There is no user with this credential!");
         return;
       }
-      if (
-        this.username == "" ||
-        this.password == ""
-      ) {
+      if (this.username == "" || this.password == "") {
         alert("Field can't be empty!");
         return;
       }
 
       localStorage.setItem("user", JSON.stringify(user));
-      this.$router.push("success");
+
+      this.$router.push(user.type);
     },
   },
   mounted() {
