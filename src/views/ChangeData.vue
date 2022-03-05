@@ -8,42 +8,42 @@
         <tr>
           <td class="label">Name:</td>
           <td>
-            <input type="text" name="Name" v-model="id" />
+            <input type="text" name="Name" v-model="name" />
           </td>
         </tr>
         <tr>
           <td class="label">Surname:</td>
           <td>
-            <input type="text" name="surname" v-model="naziv" />
+            <input type="text" name="surname" v-model="surname" />
           </td>
         </tr>
         <tr>
           <td class="label">Phone:</td>
           <td>
-            <input type="text" name="phone" v-model="id" />
+            <input type="text" name="phone" v-model="phone" />
           </td>
         </tr>
         <tr>
           <td class="label">Address:</td>
           <td>
-            <input type="text" name="address" v-model="id" />
+            <input type="text" name="address" v-model="address" />
           </td>
         </tr>
         <tr>
           <td class="label">Username:</td>
           <td>
-            <input type="text" name="username" v-model="id" />
+            <input type="text" name="username" v-model="username" />
           </td>
         </tr>
         <tr>
           <td class="label">Password:</td>
           <td>
-            <input type="text" name="password" v-model="id" />
+            <input type="text" name="password" v-model="password" />
           </td>
         </tr>
         <tr>
           <td colspan="2">
-            <button class="btn" @click="dodaj()">CHANGE DATA</button>
+            <button class="btn" @click="change()">CHANGE DATA</button>
           </td>
         </tr>
       </table>
@@ -84,5 +84,21 @@ export default {
     Background,
     Navigation,
   },
+  data() {
+    return {
+      name: "",
+      surname: "",
+      phone: "",
+      address: "",
+      username: "",
+      password: "",
+      picked: "",
+    };
+  },
+  methods: {
+    change(){
+
+    }
+  }
 };
 </script>

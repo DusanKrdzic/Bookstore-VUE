@@ -1,15 +1,23 @@
 <template>
-
   <div id="book_list">
-    <div class="col justify-content-right">
-      <div class='row-sm-5' v-for="book in books" :key="book.id">
-        <router-link :to="/book_details/ + book.id">
+    <div class="col-sm-12">
+      <div
+        class="row justify-content-center"
+        style="padding-top: 50px; padding-bottom: 100px"
+        v-for="book in books"
+        :key="book.id"
+      >
+        <router-link
+          style="text-decoration: none"
+          to="/book_details/ + book.id"
+        >
           <Book :book="book"></Book>
         </router-link>
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import books from "../data/books.js";
@@ -32,9 +40,9 @@ export default {
     } else {
       this.books = books;
     }
-console.log(this.books);
+    console.log(this.books);
     this.books = this.books.filter((book) => book.user == user.username);
-    console.log(user.username)
+    console.log(user.username);
     console.log(this.books);
   },
 };

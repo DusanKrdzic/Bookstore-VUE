@@ -50,7 +50,20 @@ const routes = [{
         name: 'BookDetails',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/BookDetails.vue')
-    }
+    },
+    {
+        path: '/recommend',
+        name: 'Recommend',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/Recommend.vue')
+    },
+    {
+        path: '/recommendations',
+        name: 'Recommendations',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/Recommendations.vue')
+    },
+
 
 
 
