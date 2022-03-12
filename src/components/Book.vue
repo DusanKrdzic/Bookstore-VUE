@@ -5,7 +5,15 @@
       <div class="card-body">
         <h2 class="card-text">{{ book.name }}</h2>
         <h3 class="card-text">{{ book.author }}</h3>
-        <h2 class="card-text" style="color: red">{{ book.promotion }}</h2>
+        <h2 class="card-text" style="color: red" v-if="this.context == 'buyer'">
+          {{ book.promotion }}
+        </h2>
+        <h2 class="card-text" v-if="context == 'recommendations'">
+          Recommended from:
+          <li v-for="elem in recommendation" :key="elem.from">
+            {{ elem }}
+          </li>
+        </h2>
       </div>
     </div>
   </div>
@@ -26,6 +34,23 @@
 <script>
 export default {
   name: "Book",
-  props: ["book"],
+  props: ["book", "context"],
+  data() {
+    return {
+      recommendation: [],
+    };
+  },
+  mounted() {
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (this.context == "recommendations") {
+      let recommendations = this.book.recommendation.filter(
+        (val) => val.to == user.username
+      );
+      recommendations.forEach((element) => {
+        this.recommendation.push(element.from);
+      });
+    }
+    console.log(this.recommendation);
+  },
 };
 </script>

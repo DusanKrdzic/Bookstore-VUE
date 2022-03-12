@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Navigation></Navigation>
-    <BookList></BookList>
+    <BookList :context="'buyer'"></BookList>
     
       <button class="btn btn-space" @click="recommend()">RECOMMENDATIONS</button>
   

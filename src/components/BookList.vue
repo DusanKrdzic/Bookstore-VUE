@@ -10,9 +10,17 @@
         <router-link
           style="text-decoration: none"
           to="/book_details/ + book.id"
+          v-if="context == 'buyer'"
         >
-          <Book :book="book"></Book>
+          <Book :book="book" :context="context"> </Book>
         </router-link>
+        <div
+          style="text-decoration: none"
+          to="/book_details/ + book.id"
+          v-if="context == 'recommendations'"
+        >
+          <Book :book="book" :context="context"> </Book>
+        </div>
       </div>
     </div>
   </div>
@@ -25,6 +33,7 @@ import Book from "./Book.vue";
 
 export default {
   name: "BookList",
+  props: ["context"],
   components: {
     Book,
   },
@@ -40,10 +49,15 @@ export default {
     } else {
       this.books = books;
     }
-    console.log(this.books);
-    this.books = this.books.filter((book) => book.user == user.username);
-    console.log(user.username);
-    console.log(this.books);
+    if (this.context == "buyer")
+      this.books = this.books.filter((book) =>
+        book.users.some((username) => username == user.username)
+      );
+    else if (this.context == "recommendations") {
+      this.books = this.books.filter((book) =>
+        book.recommendation.some((val) => val.to == user.username)
+      );
+    }
   },
 };
 </script>

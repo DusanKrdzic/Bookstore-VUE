@@ -91,6 +91,7 @@ export default {
     },
   },
   mounted() {
+    localStorage.clear();
     if (localStorage.getItem("users") != null) {
       this.users = JSON.parse(localStorage.getItem("users"));
     } else {

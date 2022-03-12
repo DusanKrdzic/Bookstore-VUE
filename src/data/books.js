@@ -5,7 +5,8 @@ let books = [{
         description: 'Survival on a dessert island',
         published: 'April 25, 1719',
         promotion: "PROMOTION",
-        user: "peter"
+        users: ["peter", "john"],
+        recommendation: []
     },
     {
         id: 2,
@@ -14,7 +15,21 @@ let books = [{
         description: "It's too complicated... :)",
         published: '1875-1877',
         promotion: "",
-        user: "peter"
+        users: ["peter"],
+        recommendation: []
+    },
+    {
+        id: 3,
+        name: 'Alice in Wonderland',
+        author: 'Lewis Carol',
+        description: "The story of a girl who disappears down a rabbit hole to a fantastic place full of bizarre adventures...",
+        published: 'November 1865',
+        promotion: "",
+        users: ["john"],
+        recommendation: [{
+            to: "peter",
+            from: "john"
+        }]
     }
 ]
 

@@ -17,14 +17,23 @@ let users = [{
         type: "buyer"
     },
     {
+        name: "Peter",
+        surname: "Peterson",
+        username: "peter",
+        password: "peter123",
+        phone: "1234567",
+        Address: "Dummy street 3",
+        type: "buyer"
+    },
+    {
         name: "Luke",
         surname: "Garcia",
         username: "luke",
         password: "luke123",
         phone: "1234567",
         Address: "Dummy street 3",
-        type: "seller"
-    }
-]
+        type: "seller",
+    },
+];
 
 export default users;
