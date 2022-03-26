@@ -8,16 +8,15 @@
         :key="book.id"
       >
         <router-link
+          :to="'book_details/'+book.id"
           style="text-decoration: none"
-          to="/book_details/ + book.id"
           v-if="context == 'buyer'"
         >
           <Book :book="book" :context="context"> </Book>
         </router-link>
         <div
-          style="text-decoration: none"
-          to="/book_details/ + book.id"
           v-if="context == 'recommendations'"
+          style="text-decoration: none"
         >
           <Book :book="book" :context="context"> </Book>
         </div>

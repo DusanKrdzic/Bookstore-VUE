@@ -50,7 +50,6 @@ export default {
         this.recommendation.push(element.from);
       });
     }
-    console.log(this.recommendation);
   },
 };
 </script>
