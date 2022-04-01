@@ -55,8 +55,13 @@
         <li class="list-group-item" style="background-color: burlywood">
           USER: {{ comment.username }}
         </li>
-        <li class="list-group-item" style="background-color: burlywood">
-          COMMENT: {{ comment.comment }}
+        <li
+          class="list-group-item"
+          style="background-color: burlywood"
+          v-for="item in comment.comment"
+          :key="item.id"
+        >
+          COMMENT: {{ item }}
         </li>
         <li class="list-group-item" style="background-color: burlywood">
           RATE: {{ comment.rate }}
@@ -125,22 +130,50 @@ export default {
   },
   methods: {
     rate_meth() {
-        let user = JSON.parse(localStorage.getItem("user"));
-        let new_comment = this.comments.filter(
-      (comment) => comment.username == user.username
-    );
-
-    if (new_comment == null){
-        comments.push({id:5,book:this.book.id, comment:"", rate:this.rate})
-    }
-        
+      let user = JSON.parse(localStorage.getItem("user"));
+      let new_comment = this.comments.find(
+        (comment) =>
+          comment.username == user.username && comment.book == this.book.id
+      );
+      if (new_comment == null) {
+        let last_comment = this.comments[this.comments.length - 1];
+        let id = last_comment.id + 1;
+        this.comments.push({
+          id: id,
+          username: user.username,
+          book: this.book.id,
+          comment: [],
+          rate: this.rate,
+        });
+        localStorage.setItem("comments", JSON.stringify(this.comments));
+      } else {
+        this.comments[new_comment.id].rate = this.rate;
+        localStorage.setItem("comments", JSON.stringify(this.comments));
+      }
     },
-    comment_meth(){
-
+    comment_meth() {
+      let user = JSON.parse(localStorage.getItem("user"));
+      let new_comment = this.comments.find(
+        (comment) =>
+          comment.username == user.username && comment.book == this.book.id
+      );
+      if (new_comment == null) {
+        let last_comment = comments[this.comments.length - 1];
+        let id = last_comment.id + 1;
+        this.comments.push({
+          id: id,
+          username: user.username,
+          comment: [this.comment],
+          book: this.book.id,
+          rate: "",
+        });
+        localStorage.setItem("comments", JSON.stringify(this.comments));
+      } else {
+        this.comments[new_comment.id].comment.push(this.comment);
+        localStorage.setItem("comments", JSON.stringify(this.comments));
+      }
     },
-    recommend_meth(){
-
-    },
+    recommend_meth() {},
   },
   mounted() {
     let book_id = this.$route.params.id;
@@ -159,7 +192,6 @@ export default {
     this.comments = this.comments.filter(
       (comment) => comment.book == this.book.id
     );
-    console.table(this.comments);
   },
 };
 </script>
