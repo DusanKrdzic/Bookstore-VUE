@@ -173,7 +173,9 @@ export default {
         localStorage.setItem("comments", JSON.stringify(this.comments));
       }
     },
-    recommend_meth() {},
+    recommend_meth() {
+      this.$router.push("/recommend");
+    },
   },
   mounted() {
     let book_id = this.$route.params.id;
