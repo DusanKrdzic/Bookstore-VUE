@@ -10,10 +10,13 @@
           <h3 class="card-text">{{ book.author }}</h3>
           <h2 class="card-text" style="color: red">{{ book.promotion }}</h2>
           <h3 class="card-text">{{ book.description }}</h3>
+          <h2 class="card-text">{{book.published}}</h2>
+          <h2 class="card-text">{{book.pages}}</h2>
         </div>
       </div>
     </div>
-    <div class="center">
+    <div v-if="user.type == 'buyer'">
+    <div class="center" >
       <table>
         <tr>
           <td class="label">RATE:</td>
@@ -67,6 +70,7 @@
           RATE: {{ comment.rate }}
         </li>
       </ul>
+    </div>
     </div>
   </div>
 </template>
@@ -126,6 +130,7 @@ export default {
       rate: "",
       comment: "",
       comments: [],
+      user: {}
     };
   },
   methods: {
@@ -194,6 +199,7 @@ export default {
     this.comments = this.comments.filter(
       (comment) => comment.book == this.book.id
     );
+    this.user = JSON.parse(localStorage.getItem("user"));
   },
 };
 </script>

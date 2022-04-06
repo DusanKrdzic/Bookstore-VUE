@@ -6,7 +6,8 @@ let books = [{
         published: 'April 25, 1719',
         promotion: "PROMOTION",
         users: ["peter", "john"],
-        recommendation: []
+        recommendation: [],
+        pages: 304
     },
     {
         id: 2,
@@ -16,7 +17,8 @@ let books = [{
         published: '1875-1877',
         promotion: "",
         users: ["peter"],
-        recommendation: []
+        recommendation: [],
+        pages: 865
     },
     {
         id: 3,
@@ -29,7 +31,8 @@ let books = [{
         recommendation: [{
             to: "peter",
             from: "john"
-        }]
+        }],
+        pages: 200
     }
 ]
 
