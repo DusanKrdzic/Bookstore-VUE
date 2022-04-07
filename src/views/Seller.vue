@@ -114,7 +114,7 @@ export default {
       book: "",
       summary: "",
       year: "",
-      num_pages: 0,
+      num_pages: "",
       books: [],
     };
   },
@@ -134,6 +134,40 @@ export default {
       }
       console.log(book);
       this.$router.push("/book_details/" + book.id);
+    },
+    add() {
+      if (
+        this.author == "" ||
+        this.book == "" ||
+        this.summary == "" ||
+        this.year == "" ||
+        this.num_pages == ""
+      ) {
+        alert("Fields can't be empty for search!");
+        return;
+      }
+      let book = this.books.find(
+        (book) =>
+          book.author == this.author && book.name == this.book
+      );
+      if (book != null) {
+        alert("This book already exists!");
+        return;
+      }
+      let id = books[books.length - 1].id + 1;
+      this.books.push({
+        id: id,
+        author: this.author,
+        name: this.book,
+        description: this.summary,
+        published: this.year,
+        pages: this.num_pages,
+        promotion: "",
+        users: [],
+        recommendation: [],
+      });
+      localStorage.setItem("books", JSON.stringify(this.books));
+      console.log(this.books);
     },
   },
   mounted() {

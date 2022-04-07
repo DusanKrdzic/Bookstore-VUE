@@ -1,4 +1,5 @@
 let users = [{
+        id: 0,
         name: "John",
         surname: "Smith",
         username: "john",
@@ -8,6 +9,7 @@ let users = [{
         type: "buyer"
     },
     {
+        id: 1,
         name: "David",
         surname: "Davidson",
         username: "david",
@@ -17,6 +19,7 @@ let users = [{
         type: "buyer"
     },
     {
+        id: 2,
         name: "Peter",
         surname: "Peterson",
         username: "peter",
@@ -26,6 +29,7 @@ let users = [{
         type: "buyer"
     },
     {
+        id: 3,
         name: "Luke",
         surname: "Garcia",
         username: "luke",

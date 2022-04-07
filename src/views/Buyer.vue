@@ -2,12 +2,12 @@
   <div class="home">
     <Navigation></Navigation>
     <BookList :context="'buyer'"></BookList>
-    
-      <button class="btn btn-space" @click="recommend()">RECOMMENDATIONS</button>
-  
-<br style="padding-top:100px">
-      <button class="btn btn-space"  @click="change_data()">CHANGE DATA</button>
- 
+
+    <button class="btn btn-space" @click="recommend()">RECOMMENDATIONS</button>
+
+    <br style="padding-top: 100px" />
+    <button class="btn btn-space" @click="change_data()">CHANGE DATA</button>
+
     <header>
       <!-- The header content -->
     </header>
@@ -38,7 +38,8 @@ export default {
   components: {
     Navigation,
     BookList,
-  },  data() {
+  },
+  data() {
     return {
       user: null,
     };
@@ -47,16 +48,15 @@ export default {
     recommend() {
       this.$router.push("recommendations");
     },
-    change_data(){
-
+    change_data() {
+      localStorage.setItem("user", JSON.stringify(this.user));
       this.$router.push("change_data");
     },
   },
   mounted() {
-      this.user = JSON.parse(localStorage.getItem("user"));
-      console.log("dule car")
-      console.log( this.user)
-
+    this.user = JSON.parse(localStorage.getItem("user"));
+    console.log("dule car");
+    console.log(this.user);
   },
 };
 </script>

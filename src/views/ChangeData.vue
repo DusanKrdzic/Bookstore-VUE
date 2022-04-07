@@ -77,6 +77,7 @@
 // @ is an alias to /src
 import Background from "../components/Background.vue";
 import Navigation from "../components/Navigation.vue";
+import users from "../data/users.js";
 
 export default {
   name: "ChangeData",
@@ -92,13 +93,49 @@ export default {
       address: "",
       username: "",
       password: "",
-      picked: "",
+      user: {},
+      users: [],
     };
   },
   methods: {
-    change(){
-
+    change() {
+      if (this.name != "") {
+        this.users[this.user.id].name = this.name;
+      }
+      if (this.surname != "") {
+        this.users[this.user.id].surname = this.surname;
+      }
+      if (this.phone != "") {
+        this.users[this.user.id].phone = this.phone;
+      }
+      if (this.address != "") {
+        this.users[this.user.id].address = this.address;
+      }
+      if (this.username != "") {
+        let user_help = this.users.find(
+          (user) => user.username == this.username
+        );
+        if (user_help != null) {
+          alert("This username is already used!");
+          return;
+        }
+        this.users[this.user.id].username = this.username;
+      }
+      if (this.password != "") {
+        this.users[this.user.id].password = this.password;
+      }
+      localStorage.setItem("users", JSON.stringify(this.users));
+    },
+  },
+  mounted() {
+    if (localStorage.getItem("users") != null) {
+      this.users = JSON.parse(localStorage.getItem("users"));
+    } else {
+      this.users = users;
     }
-  }
+    this.user = JSON.parse(localStorage.getItem("user"));
+    this.user = this.users.find((user) => user.id == this.user.id);
+    console.log(this.users)
+  },
 };
 </script>

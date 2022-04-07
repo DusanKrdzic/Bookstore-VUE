@@ -179,6 +179,7 @@ export default {
       }
     },
     recommend_meth() {
+      localStorage.setItem("book", JSON.stringify(this.book));
       this.$router.push("/recommend");
     },
   },
