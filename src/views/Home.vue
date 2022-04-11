@@ -2,9 +2,7 @@
   <div class="home">
     <Navigation></Navigation>
     <Background> </Background>
-
     <header>
-      <!-- The header content -->
       <div class="container h-100">
         <div class="d-flex h-100 text-center align-items-center">
           <div class="w-100">

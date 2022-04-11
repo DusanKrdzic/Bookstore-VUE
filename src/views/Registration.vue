@@ -2,7 +2,6 @@
   <div class="home">
     <Navigation></Navigation>
     <Background> </Background>
-
     <div class="center">
       <table>
         <tr>

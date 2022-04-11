@@ -99,6 +99,17 @@ export default {
   },
   methods: {
     change() {
+      if (
+        this.name == "" &&
+        this.surname == "" &&
+        this.phone == "" &&
+        this.address == "" &&
+        this.username == "" &&
+        this.password == ""
+      ) {
+        alert("Fields can't be empty!");
+        return;
+      }
       if (this.name != "") {
         this.users[this.user.id].name = this.name;
       }
@@ -125,6 +136,7 @@ export default {
         this.users[this.user.id].password = this.password;
       }
       localStorage.setItem("users", JSON.stringify(this.users));
+      alert("Data is changed successfully!");
     },
   },
   mounted() {
@@ -135,7 +147,6 @@ export default {
     }
     this.user = JSON.parse(localStorage.getItem("user"));
     this.user = this.users.find((user) => user.id == this.user.id);
-    console.log(this.users)
   },
 };
 </script>

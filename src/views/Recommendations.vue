@@ -2,11 +2,7 @@
   <div class="home">
     <Navigation></Navigation>
     <BookList :context="'recommendations'"></BookList>
-    
- 
-    <header>
-      <!-- The header content -->
-    </header>
+    <header></header>
   </div>
 </template>
 
@@ -34,19 +30,16 @@ export default {
   components: {
     Navigation,
     BookList,
-  },  data() {
+  },
+  data() {
     return {
       user: null,
     };
   },
-  methods: {
-
-  },
+  methods: {},
   mounted() {
-      this.user = JSON.parse(localStorage.getItem("user"));
-      console.log("dule car")
-      console.log( this.user)
-
+    this.user = JSON.parse(localStorage.getItem("user"));
+    console.log(this.user);
   },
 };
 </script>
