@@ -10,67 +10,67 @@
           <h3 class="card-text">{{ book.author }}</h3>
           <h2 class="card-text" style="color: red">{{ book.promotion }}</h2>
           <h3 class="card-text">{{ book.description }}</h3>
-          <h2 class="card-text">{{book.published}}</h2>
-          <h2 class="card-text">{{book.pages}}</h2>
+          <h2 class="card-text">{{ book.published }}</h2>
+          <h2 class="card-text">{{ book.pages }}</h2>
         </div>
       </div>
     </div>
     <div v-if="user.type == 'buyer'">
-    <div class="center" >
-      <table>
-        <tr>
-          <td class="label">RATE:</td>
-          <td>
-            <input type="text" name="rate" placeholder="1-5" v-model="rate" />
-          </td>
-          <td colspan="2">
-            <button class="btn" @click="rate_meth()">RATE</button>
-          </td>
-        </tr>
+      <div class="center">
+        <table>
+          <tr>
+            <td class="label">RATE:</td>
+            <td>
+              <input type="text" name="rate" placeholder="1-5" v-model="rate" />
+            </td>
+            <td colspan="2">
+              <button class="btn" @click="rate_meth()">RATE</button>
+            </td>
+          </tr>
 
-        <tr>
-          <td class="label">COMMENT:</td>
-          <td>
-            <textarea name="comment" v-model="comment" />
-          </td>
-          <td colspan="2">
-            <button class="btn" @click="comment_meth()">COMMENT</button>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4">
-            <button class="btn" @click="recommend_meth()" style="width: 100%">
-              RECOMMEND
-            </button>
-          </td>
-        </tr>
-      </table>
-    </div>
+          <tr>
+            <td class="label">COMMENT:</td>
+            <td>
+              <textarea name="comment" v-model="comment" />
+            </td>
+            <td colspan="2">
+              <button class="btn" @click="comment_meth()">COMMENT</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <button class="btn" @click="recommend_meth()" style="width: 100%">
+                RECOMMEND
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    <div
-      class="card"
-      style="width: 18rem"
-      v-for="comment in comments"
-      :key="comment.id"
-    >
-      <div class="card-header" style="background-color: #d4f3f4">COMMENT</div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" style="background-color: burlywood">
-          USER: {{ comment.username }}
-        </li>
-        <li
-          class="list-group-item"
-          style="background-color: burlywood"
-          v-for="item in comment.comment"
-          :key="item.id"
-        >
-          COMMENT: {{ item }}
-        </li>
-        <li class="list-group-item" style="background-color: burlywood">
-          RATE: {{ comment.rate }}
-        </li>
-      </ul>
-    </div>
+      <div
+        class="card"
+        style="width: 18rem"
+        v-for="comment in comments"
+        :key="comment.id"
+      >
+        <div class="card-header" style="background-color: #d4f3f4">COMMENT</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style="background-color: burlywood">
+            USER: {{ comment.username }}
+          </li>
+          <li
+            class="list-group-item"
+            style="background-color: burlywood"
+            v-for="item in comment.comment"
+            :key="item.id"
+          >
+            COMMENT: {{ item }}
+          </li>
+          <li class="list-group-item" style="background-color: burlywood">
+            RATE: {{ comment.rate }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -130,7 +130,7 @@ export default {
       rate: "",
       comment: "",
       comments: [],
-      user: {}
+      user: {},
     };
   },
   methods: {
