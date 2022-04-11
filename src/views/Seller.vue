@@ -132,7 +132,6 @@ export default {
         alert("There is no book with this author and name!");
         return;
       }
-      console.log(book);
       this.$router.push("/book_details/" + book.id);
     },
     add() {
@@ -143,12 +142,11 @@ export default {
         this.year == "" ||
         this.num_pages == ""
       ) {
-        alert("Fields can't be empty for search!");
+        alert("Fields can't be empty!");
         return;
       }
       let book = this.books.find(
-        (book) =>
-          book.author == this.author && book.name == this.book
+        (book) => book.author == this.author && book.name == this.book
       );
       if (book != null) {
         alert("This book already exists!");
@@ -167,7 +165,6 @@ export default {
         recommendation: [],
       });
       localStorage.setItem("books", JSON.stringify(this.books));
-      console.log(this.books);
     },
   },
   mounted() {
