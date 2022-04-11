@@ -1,5 +1,5 @@
 let books = [{
-        id: 1,
+        id: 0,
         name: 'Robinson Crusoe',
         author: 'Daniel Defoue',
         description: 'Survival on a dessert island',
@@ -10,7 +10,7 @@ let books = [{
         pages: 304
     },
     {
-        id: 2,
+        id: 1,
         name: 'Ana Karenina',
         author: 'Leo Tolstoy',
         description: "It's too complicated... :)",
@@ -21,7 +21,7 @@ let books = [{
         pages: 865
     },
     {
-        id: 3,
+        id: 2,
         name: 'Alice in Wonderland',
         author: 'Lewis Carol',
         description: "The story of a girl who disappears down a rabbit hole to a fantastic place full of bizarre adventures...",

@@ -5,12 +5,19 @@
 
     <div class="center">
       <table>
-        <tr v-for="user in users" :key="user.username">
-          <td style="color: burlywood; font-size: 200%">
-            {{ user.username }}
+        <tr v-for="elem in users" :key="elem.username">
+          <td
+            style="color: burlywood; font-size: 200%"
+            v-if="elem.username != user.username"
+          >
+            {{ elem.username }}
           </td>
-          <td colspan="2" style="padding-left: 50%">
-            <button class="btn" @click="recommend(user.username)">
+          <td
+            colspan="2"
+            style="padding-left: 50%"
+            v-if="elem.username != user.username"
+          >
+            <button class="btn" @click="recommend(elem.username)">
               RECOMMEND
             </button>
           </td>
@@ -71,12 +78,12 @@ export default {
         alert("You already recommend this book to this user!");
         return;
       }
-      this.book.recommendation.push({
+      this.books[this.book.id].recommendation.push({
         from: this.user.username,
         to: to,
       });
-      this.books[this.book.id] = this.book;
       localStorage.setItem("books", JSON.stringify(this.books));
+      alert("Book is succesfully recommended!");
     },
   },
   mounted() {
@@ -87,13 +94,11 @@ export default {
     }
     if (localStorage.getItem("books") != null) {
       this.books = JSON.parse(localStorage.getItem("books"));
-      console.log(this.books);
     } else {
       this.books = books;
     }
     this.book = JSON.parse(localStorage.getItem("book"));
     this.book = this.books.find((book) => book.id == this.book.id);
-    console.log(this.book);
     this.user = JSON.parse(localStorage.getItem("user"));
   },
 };
