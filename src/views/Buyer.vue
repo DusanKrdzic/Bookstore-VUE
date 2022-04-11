@@ -2,12 +2,9 @@
   <div class="home">
     <Navigation></Navigation>
     <BookList :context="'buyer'"></BookList>
-
     <button class="btn btn-space" @click="recommend()">RECOMMENDATIONS</button>
-
     <br style="padding-top: 100px" />
     <button class="btn btn-space" @click="change_data()">CHANGE DATA</button>
-
     <header>
       <!-- The header content -->
     </header>
@@ -41,7 +38,7 @@ export default {
   },
   data() {
     return {
-      user: null,
+      user: {},
     };
   },
   methods: {
@@ -55,8 +52,6 @@ export default {
   },
   mounted() {
     this.user = JSON.parse(localStorage.getItem("user"));
-    console.log("dule car");
-    console.log(this.user);
   },
 };
 </script>
