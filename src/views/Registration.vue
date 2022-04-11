@@ -51,7 +51,11 @@
               value="buyer"
               v-model="picked"
             />
-            <label class="form-check-label" for="flexRadioDefault1" style="color:burlywood">
+            <label
+              class="form-check-label"
+              for="flexRadioDefault1"
+              style="color: burlywood"
+            >
               Buyer
             </label>
           </div>
@@ -64,7 +68,11 @@
               value="seller"
               v-model="picked"
             />
-            <label class="form-check-label" for="flexRadioDefault2" style="color:burlywood">
+            <label
+              class="form-check-label"
+              for="flexRadioDefault2"
+              style="color: burlywood"
+            >
               Seller
             </label>
           </div>
@@ -127,16 +135,6 @@ export default {
   },
   methods: {
     register() {
-      console.log(users);
-      console.log(this.picked)
-      let user = this.users.find(
-        (user) =>
-          user.username == this.username
-      );
-      if (user != null) {
-        alert("This user already exists, try again!");
-        return;
-      }
       if (
         this.name == "" ||
         this.surname == "" ||
@@ -146,7 +144,12 @@ export default {
         this.password == "" ||
         this.picked == ""
       ) {
-        alert("Field can't be empty!");
+        alert("Fields can't be empty!");
+        return;
+      }
+      let user = this.users.find((user) => user.username == this.username);
+      if (user != null) {
+        alert("This user already exists, try again!");
         return;
       }
       this.users.push({
@@ -156,7 +159,7 @@ export default {
         address: this.address,
         username: this.username,
         password: this.password,
-        type: this.picked
+        type: this.picked,
       });
 
       localStorage.setItem("users", JSON.stringify(this.users));

@@ -46,5 +46,8 @@ export default {
     Background,
     Navigation,
   },
+  mounted() {
+    localStorage.clear();
+  }
 };
 </script>

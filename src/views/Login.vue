@@ -81,7 +81,7 @@ export default {
         return;
       }
       if (this.username == "" || this.password == "") {
-        alert("Field can't be empty!");
+        alert("Fields can't be empty!");
         return;
       }
 
@@ -91,7 +91,6 @@ export default {
     },
   },
   mounted() {
-    localStorage.clear();
     if (localStorage.getItem("users") != null) {
       this.users = JSON.parse(localStorage.getItem("users"));
     } else {
