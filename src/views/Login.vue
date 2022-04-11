@@ -71,22 +71,19 @@ export default {
   },
   methods: {
     login() {
-      let user = this.users.find(
-        (user) =>
-          user.username == this.username && user.password == this.password
-      );
-
-      if (user == null) {
-        alert("There is no user with this credential!");
-        return;
-      }
       if (this.username == "" || this.password == "") {
         alert("Fields can't be empty!");
         return;
       }
-
+      let user = this.users.find(
+        (user) =>
+          user.username == this.username && user.password == this.password
+      );
+      if (user == null) {
+        alert("There is no user with this credential!");
+        return;
+      }
       localStorage.setItem("user", JSON.stringify(user));
-
       this.$router.push(user.type);
     },
   },
